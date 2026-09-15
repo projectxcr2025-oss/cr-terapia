@@ -1,6 +1,9 @@
 # Development scratchpad
 scratch/
 
+# Cloudflare Wrangler
+.wrangler/
+
 # OS and temporary files
 .DS_Store
 Thumbs.db
