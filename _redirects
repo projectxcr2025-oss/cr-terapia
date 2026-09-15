@@ -1,0 +1,2 @@
+# Cloudflare Pages Redirects
+https://www.crterapia.com/* https://crterapia.com/:splat 301!

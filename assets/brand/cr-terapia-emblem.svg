@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="25 0 450 445" width="100%" height="100%">
+  <defs>
+    <!-- Soft realistic drop shadow -->
+    <filter id="emblem-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#14353E" flood-opacity="0.08" />
+    </filter>
+
+    <!-- Linear Gradients matching authentic palette from Logo.jpg -->
+    <linearGradient id="emb-body" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FBBFAD" />
+      <stop offset="100%" stop-color="#F49E90" />
+    </linearGradient>
+
+    <linearGradient id="emb-mask" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#9EB3E4" />
+      <stop offset="100%" stop-color="#B2C2EA" />
+    </linearGradient>
+
+    <linearGradient id="emb-wing" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#A6D5D1" />
+      <stop offset="100%" stop-color="#7FBDB8" />
+    </linearGradient>
+
+    <linearGradient id="emb-beak" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F7C468" />
+      <stop offset="100%" stop-color="#EEA83C" />
+    </linearGradient>
+
+    <!-- Circular paths for text arcs -->
+    <path id="emblem-arc-top" d="M 85, 220 A 165 165 0 0 1 415, 220" fill="none" />
+    <path id="emblem-arc-bottom" d="M 125, 362 A 188 188 0 0 0 375, 362" fill="none" />
+  </defs>
+
+  <!-- Circular Emblem Base (Pristine, NO dotted lines) -->
+  <g id="emblem-base">
+    <!-- Base Ivory Disc -->
+    <circle cx="250" cy="220" r="205" fill="#FFFDF9" stroke="#EFE6DA" stroke-width="1.5" filter="url(#emblem-shadow)" />
+
+    <!-- TOP TEXT: MENTAL WELLNESS (bajado con holgura respecto al borde) -->
+    <text font-family="'Fraunces', Georgia, serif" font-size="20" font-weight="600" fill="#CD7060" letter-spacing="4">
+      <textPath href="#emblem-arc-top" startOffset="50%" text-anchor="middle">MENTAL WELLNESS</textPath>
+    </text>
+
+    <!-- BOTTOM TEXT: CR TERAPIA (bajado con holgura) -->
+    <text font-family="'Fraunces', Georgia, serif" font-size="26" font-weight="700" fill="#1C3F49" letter-spacing="6">
+      <textPath href="#emblem-arc-bottom" startOffset="50%" text-anchor="middle">CR TERAPIA</textPath>
+    </text>
+
+    <!-- ================= BUTTERFLIES (A ambos lados de CR TERAPIA, 3 alas auténticas) ================= -->
+    <!-- LEFT BUTTERFLY: a la izquierda de la C de CR -->
+    <g id="butterfly-left" transform="translate(95, 332) rotate(-14) scale(0.68)">
+      <rect x="8" y="44" width="8" height="25" rx="4" transform="rotate(-38 12 56)" fill="#F5AA47" />
+      <ellipse cx="25" cy="24" rx="13" ry="24" transform="rotate(-8 25 24)" fill="#CEBFDF" opacity="0.88" />
+      <ellipse cx="44" cy="30" rx="13" ry="22" transform="rotate(45 44 30)" fill="#9DD4CE" opacity="0.88" />
+      <ellipse cx="42" cy="54" rx="11" ry="19" transform="rotate(78 42 54)" fill="#8BC6C0" opacity="0.88" />
+      <ellipse cx="33" cy="29" rx="8" ry="15" transform="rotate(18 33 29)" fill="#8FA5D8" opacity="0.45" />
+    </g>
+
+    <!-- RIGHT BUTTERFLY: a la derecha de la última a de TERAPIA -->
+    <g id="butterfly-right" transform="translate(405, 332) scale(-0.68, 0.68) rotate(-14)">
+      <rect x="8" y="44" width="8" height="25" rx="4" transform="rotate(-38 12 56)" fill="#F5AA47" />
+      <ellipse cx="25" cy="24" rx="13" ry="24" transform="rotate(-8 25 24)" fill="#CEBFDF" opacity="0.88" />
+      <ellipse cx="44" cy="30" rx="13" ry="22" transform="rotate(45 44 30)" fill="#9DD4CE" opacity="0.88" />
+      <ellipse cx="42" cy="54" rx="11" ry="19" transform="rotate(78 42 54)" fill="#8BC6C0" opacity="0.88" />
+      <ellipse cx="33" cy="29" rx="8" ry="15" transform="rotate(18 33 29)" fill="#8FA5D8" opacity="0.45" />
+    </g>
+
+    <!-- ================= THE OWL (CENTERED VERTICALLY & HORIZONTALLY) ================= -->
+    <g id="owl-static-emblem" transform="translate(170, 98)">
+      <!-- Owl Perch shadow -->
+      <ellipse cx="80" cy="225" rx="42" ry="6" fill="#EBD9C7" opacity="0.5" />
+
+      <!-- Owl Main Body (Coral/Melocotón) -->
+      <path d="M 25, 45 
+               C 22, 110 8, 155 12, 195 
+               C 15, 222 55, 235 95, 228 
+               C 135, 220 148, 185 146, 120 
+               C 145, 60 135, 30 115, 22 
+               C 90, 35 60, 35 25, 45 Z" 
+            fill="url(#emb-body)" />
+
+      <!-- Head Mask & Tufts (Lavender) -->
+      <path d="M 12, 38 
+               C 10, 18 16, 5 30, 18 
+               C 52, 28 98, 28 122, 18 
+               C 134, 5 140, 18 138, 38 
+               C 135, 85 15, 85 12, 38 Z" 
+            fill="url(#emb-mask)" />
+
+      <!-- Eye Circles / Cream Discs -->
+      <ellipse cx="50" cy="74" rx="27" ry="29" fill="#FEE1BD" />
+      <ellipse cx="100" cy="74" rx="27" ry="29" fill="#FEE1BD" />
+
+      <!-- Golden Beak -->
+      <polygon points="75,74 81,102 69,102" fill="url(#emb-beak)" />
+
+      <!-- Wing (Teal / Slate) -->
+      <path d="M 22, 105 
+               C 12, 140 -2, 190 8, 218 
+               C 28, 212 58, 180 68, 135 
+               C 74, 108 55, 96 22, 105 Z" 
+            fill="url(#emb-wing)" />
+
+      <!-- Resting Closed Eyes (Calm & Peaceful) -->
+      <g id="owl-closed-eyes">
+        <path d="M 37, 72 C 41, 83 55, 83 61, 72" fill="none" stroke="#266270" stroke-width="4" stroke-linecap="round" />
+        <path d="M 89, 72 C 93, 83 107, 83 113, 72" fill="none" stroke="#266270" stroke-width="4" stroke-linecap="round" />
+      </g>
+
+      <!-- Feet -->
+      <path d="M 48, 224 Q 52, 230 56, 224 M 56, 224 Q 60, 230 64, 224" stroke="#EEA83C" stroke-width="3.5" stroke-linecap="round" fill="none" />
+      <path d="M 88, 224 Q 92, 230 96, 224 M 96, 224 Q 100, 230 104, 224" stroke="#EEA83C" stroke-width="3.5" stroke-linecap="round" fill="none" />
+    </g>
+  </g>
+</svg>

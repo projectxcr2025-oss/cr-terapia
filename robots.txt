@@ -1,0 +1,35 @@
+# CR Terapia — Psicología Clínica y Psicopedagogía
+# Dra. Adriana Trigueros Elizondo · Mercedes Norte, Heredia, Costa Rica
+# https://crterapia.com
+
+User-agent: *
+Allow: /
+Disallow: /scratch/
+
+# Sitemaps
+Sitemap: https://crterapia.com/sitemap.xml
+
+# AI & LLM Agents
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Anthropic-AI
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Googlebot
+Allow: /

@@ -1,0 +1,344 @@
+/* ==========================================================================
+   CR TERAPIA — ANIMATIONS & KEYFRAMES (ULTRA-PREMIUM & ROBUST)
+   Vuelo interactivo del búho, aleteo, mariposas y micro-interacciones
+   ========================================================================== */
+
+/* ---------- 1. EL BÚHO (VISIBLE POR DEFECTO Y EN VUELO) ---------- */
+
+.hero-owl-character {
+  position: absolute;
+  top: 17%;
+  left: 50%;
+  width: 170px;
+  height: 220px;
+  margin-left: -85px;
+  z-index: 10;
+  cursor: pointer;
+  transform-origin: center 80%;
+  filter: drop-shadow(0 14px 24px rgba(20, 53, 62, 0.16));
+  will-change: transform, opacity;
+  /* Empieza invisible — el vuelo lo hace aparecer */
+  opacity: 0;
+  transform: translate(-340px, -240px) scale(0.5) rotate(-32deg);
+}
+
+/* Estado de vuelo activo */
+.hero-owl-character.flying {
+  animation: owlArrivalFlight 2.6s cubic-bezier(0.18, 0.89, 0.32, 1) forwards;
+}
+
+@keyframes owlArrivalFlight {
+  0% {
+    opacity: 0;
+    transform: translate(-340px, -240px) scale(0.5) rotate(-32deg);
+  }
+  15% {
+    opacity: 1;
+    transform: translate(-230px, -150px) scale(0.7) rotate(-20deg);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-80px, -60px) scale(0.88) rotate(-8deg);
+  }
+  75% {
+    opacity: 1;
+    transform: translate(16px, -18px) scale(1.08) rotate(5deg);
+  }
+  88% {
+    opacity: 1;
+    transform: translate(-3px, 4px) scale(0.97) rotate(-2deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+}
+
+/* Aleteo dinámico en vuelo */
+.owl-wing-animated {
+  transform-origin: 32px 105px;
+  will-change: transform;
+}
+
+.hero-owl-character.flying .owl-wing-animated {
+  animation: owlFlapInFlight 0.2s ease-in-out infinite alternate;
+}
+
+@keyframes owlFlapInFlight {
+  0% {
+    transform: rotate(0deg) scaleY(1);
+  }
+  100% {
+    transform: rotate(-36deg) scaleY(0.72) scaleX(1.18);
+  }
+}
+
+/* Plegado de alas al posarse */
+.hero-owl-character.landed .owl-wing-animated {
+  animation: owlWingFold 0.6s ease-out forwards;
+}
+
+@keyframes owlWingFold {
+  0% {
+    transform: rotate(-24deg) scaleY(0.8);
+  }
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+/* Capas de ojos */
+.owl-eyes-open-layer {
+  opacity: 1;
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.owl-eyes-closed-layer {
+  opacity: 0;
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Cuando está en reposo (landed) y NO está despierto: ojos cerrados */
+.hero-owl-character.landed:not(.awake) .owl-eyes-open-layer {
+  opacity: 0;
+}
+
+.hero-owl-character.landed:not(.awake) .owl-eyes-closed-layer {
+  opacity: 1;
+}
+
+/* Despierto (en vuelo, al aterrizar antes del descanso, o con hover/touch) */
+.hero-owl-character.flying .owl-eyes-open-layer,
+.hero-owl-character.awake .owl-eyes-open-layer,
+.hero-owl-character:hover .owl-eyes-open-layer {
+  opacity: 1 !important;
+}
+
+.hero-owl-character.flying .owl-eyes-closed-layer,
+.hero-owl-character.awake .owl-eyes-closed-layer,
+.hero-owl-character:hover .owl-eyes-closed-layer {
+  opacity: 0 !important;
+}
+
+.hero-owl-character:hover {
+  transform: translateY(-5px) scale(1.025);
+  transition: transform 0.3s ease;
+}
+
+/* Respiración suave continua cuando está posado */
+.hero-owl-character.landed {
+  opacity: 1;
+  transform: translate(0, 0) scale(1) rotate(0deg);
+  animation: owlGentleBreathing 5s ease-in-out infinite 2s;
+}
+
+@keyframes owlGentleBreathing {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-6px) scale(1.016, 1.022);
+  }
+}
+
+/* Pupila interactiva */
+.owl-pupil {
+  transform-origin: center;
+  transition: transform 0.15s ease-out;
+}
+
+/* ---------- 2. MARIPOSAS ANCLADAS FLOTANDO DENTRO DEL CÍRCULO ---------- */
+.butterfly-subtle-motion-a {
+  animation: butterflyRelativeFloatA 5s ease-in-out infinite alternate;
+}
+
+.butterfly-subtle-motion-b {
+  animation: butterflyRelativeFloatB 6s ease-in-out infinite alternate;
+}
+
+@keyframes butterflyRelativeFloatA {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(-5px, -8px) rotate(-5deg);
+  }
+  100% {
+    transform: translate(3px, -4px) rotate(3deg);
+  }
+}
+
+@keyframes butterflyRelativeFloatB {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(6px, -7px) rotate(4deg);
+  }
+  100% {
+    transform: translate(-3px, -3px) rotate(-3deg);
+  }
+}
+
+.butterfly-wings-flapping {
+  transform-box: fill-box;
+  transform-origin: 15% 70%;
+  will-change: transform;
+}
+
+.bfly-wings-left {
+  animation: bflyWingFlap 0.32s ease-in-out infinite alternate;
+}
+
+.bfly-wings-right {
+  animation: bflyWingFlap 0.35s ease-in-out infinite alternate 0.07s;
+}
+
+@keyframes bflyWingFlap {
+  0% {
+    transform: scaleX(1) scaleY(1) rotate(0deg);
+  }
+  100% {
+    transform: scaleX(0.38) scaleY(0.92) rotate(-8deg);
+  }
+}
+
+/* ---------- 3. ORBES AMBIENTALES ---------- */
+.ambient-glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(65px);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.38;
+  will-change: transform;
+}
+
+.orb-coral {
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, rgba(238, 112, 87, 0.38) 0%, transparent 70%);
+  top: -80px;
+  right: -60px;
+  animation: orbDrift1 14s ease-in-out infinite alternate;
+}
+
+.orb-lavender {
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle, rgba(124, 110, 209, 0.32) 0%, transparent 70%);
+  bottom: -60px;
+  left: -80px;
+  animation: orbDrift2 16s ease-in-out infinite alternate;
+}
+
+.orb-mint {
+  width: 340px;
+  height: 340px;
+  background: radial-gradient(circle, rgba(47, 165, 127, 0.26) 0%, transparent 70%);
+  top: 40%;
+  left: 30%;
+  animation: orbDrift3 18s ease-in-out infinite alternate;
+}
+
+@keyframes orbDrift1 {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(-35px, 45px) scale(1.1); }
+}
+
+@keyframes orbDrift2 {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(45px, -30px) scale(0.92); }
+}
+
+@keyframes orbDrift3 {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(-20px, 25px) scale(1.08); }
+}
+
+/* ---------- 4. WIDGET DE RESPIRACIÓN CONSCIENTE ---------- */
+.breathing-visual-container {
+  position: relative;
+  width: 260px;
+  height: 260px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.breathing-pulse-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(124, 110, 209, 0.14) 0%, rgba(47, 165, 127, 0.08) 60%, transparent 100%);
+  border: 2px solid rgba(124, 110, 209, 0.22);
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.breathing-core-circle {
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #7C6ED1 0%, #2FA57F 100%);
+  color: #FFFDF9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 16px 36px -8px rgba(124, 110, 209, 0.45);
+  position: relative;
+  z-index: 2;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  user-select: none;
+}
+
+.breathing-core-circle.inhale {
+  transform: scale(1.35);
+  box-shadow: 0 24px 50px -10px rgba(47, 165, 127, 0.55);
+}
+
+.breathing-core-circle.hold {
+  transform: scale(1.35);
+  box-shadow: 0 24px 50px -10px rgba(124, 110, 209, 0.6);
+}
+
+.breathing-core-circle.exhale {
+  transform: scale(0.9);
+  box-shadow: 0 12px 28px -6px rgba(238, 112, 87, 0.4);
+}
+
+/* ---------- 5. 3D CARD TILT & HOVER ---------- */
+.tilt-card {
+  transition: transform 0.28s cubic-bezier(0.2, 0.8, 0.4, 1), box-shadow 0.28s ease, border-color 0.28s ease;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.tilt-card:hover {
+  transform: translateY(-8px) scale(1.015);
+  box-shadow: 0 26px 48px -12px rgba(20, 53, 62, 0.14);
+  border-color: rgba(238, 112, 87, 0.35);
+}
+
+/* ---------- 6. REVEAL AL HACER SCROLL ---------- */
+.fade-up {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.stagger-1 { transition-delay: 0.1s; }
+.stagger-2 { transition-delay: 0.2s; }
+.stagger-3 { transition-delay: 0.3s; }
+.stagger-4 { transition-delay: 0.4s; }
+
+/* Animaciones siempre habilitadas para máxima fidelidad visual y de marca */
+

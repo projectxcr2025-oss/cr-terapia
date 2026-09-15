@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 64" width="100%" height="100%">
+  <defs>
+    <linearGradient id="nl-body" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FBBFAD" />
+      <stop offset="100%" stop-color="#F49E90" />
+    </linearGradient>
+    <linearGradient id="nl-mask" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#9EB3E4" />
+      <stop offset="100%" stop-color="#B2C2EA" />
+    </linearGradient>
+  </defs>
+
+  <!-- Mini emblem circle (Solid clean border, NO dashes) -->
+  <g transform="translate(4, 4)">
+    <circle cx="28" cy="28" r="27" fill="#FFFDF9" stroke="#E6D6C6" stroke-width="1.2" />
+    <!-- Owl mini -->
+    <g transform="translate(10, 8) scale(0.245)">
+      <path d="M 25, 45 C 22, 110 8, 155 12, 195 C 15, 222 55, 235 95, 228 C 135, 220 148, 185 146, 120 C 145, 60 135, 30 115, 22 C 90, 35 60, 35 25, 45 Z" fill="url(#nl-body)" />
+      <path d="M 12, 38 C 10, 18 16, 5 30, 18 C 52, 28 98, 28 122, 18 C 134, 5 140, 18 138, 38 C 135, 85 15, 85 12, 38 Z" fill="url(#nl-mask)" />
+      <ellipse cx="50" cy="74" rx="26" ry="28" fill="#FEE1BD" />
+      <ellipse cx="100" cy="74" rx="26" ry="28" fill="#FEE1BD" />
+      <polygon points="75,74 81,102 69,102" fill="#F4B551" />
+      <path d="M 22, 105 C 12, 140 -2, 190 8, 218 C 28, 212 58, 180 68, 135 C 74, 108 55, 96 22, 105 Z" fill="#82BFC0" />
+      <path d="M 37, 72 C 41, 83 55, 83 61, 72" fill="none" stroke="#266270" stroke-width="4.5" stroke-linecap="round" />
+      <path d="M 89, 72 C 93, 83 107, 83 113, 72" fill="none" stroke="#266270" stroke-width="4.5" stroke-linecap="round" />
+    </g>
+  </g>
+
+  <text x="70" y="32" font-family="'Fraunces', Georgia, serif" font-size="22" font-weight="700" fill="#1C3F49" letter-spacing="0.5">
+    CR Terapia
+  </text>
+  <text x="71" y="49" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="600" fill="#996357" letter-spacing="2" text-transform="uppercase">
+    Mental Wellness
+  </text>
+</svg>
